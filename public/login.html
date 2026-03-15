@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DoctorSetu - Login</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+  <div class="page">
+
+    <!-- LEFT PANEL -->
+    <div class="left-panel">
+      <div class="brand">
+        <i class="fas fa-heartbeat"></i>
+        <h1>DoctorSetu</h1>
+        <p>Your trusted healthcare companion</p>
+      </div>
+      <div class="features">
+        <div class="feature-item">
+          <i class="fas fa-calendar-check"></i>
+          <span>Easy Appointment Booking</span>
+        </div>
+        <div class="feature-item">
+          <i class="fas fa-user-md"></i>
+          <span>Verified Doctors</span>
+        </div>
+        <div class="feature-item">
+          <i class="fas fa-comment-medical"></i>
+          <span>Direct Doctor–Patient Messaging</span>
+        </div>
+        <div class="feature-item">
+          <i class="fas fa-users"></i>
+          <span>Manage Entire Family's Health</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="right-panel">
+      <div class="login-card">
+
+        <!-- ROLE SELECTOR -->
+        <div id="roleStep">
+          <h2>Welcome Back!</h2>
+          <p class="sub">Choose how you want to continue</p>
+
+          <div class="role-cards">
+            <div class="role-card" onclick="selectRole('patient')">
+              <div class="role-icon patient-icon">
+                <i class="fas fa-user"></i>
+              </div>
+              <h3>Patient</h3>
+              <p>Book appointments & manage family health</p>
+            </div>
+            <div class="role-card" onclick="selectRole('doctor')">
+              <div class="role-icon doctor-icon">
+                <i class="fas fa-user-md"></i>
+              </div>
+              <h3>Doctor</h3>
+              <p>Manage appointments & patient care</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- MOBILE STEP -->
+        <div id="mobileStep" style="display:none;">
+          <button class="back-btn" onclick="goBack('roleStep')">
+            <i class="fas fa-arrow-left"></i> Back
+          </button>
+          <div id="roleLabel" class="role-label"></div>
+          <h2>Enter Mobile Number</h2>
+          <p class="sub">We'll send you a 6-digit OTP</p>
+
+          <div class="input-group">
+            <span class="input-icon"><i class="fas fa-phone"></i></span>
+            <input type="tel" id="mobile" placeholder="10-digit mobile number" maxlength="10">
+          </div>
+
+          <button class="btn-primary" onclick="sendOTP()">
+            <i class="fas fa-paper-plane"></i> Send OTP
+          </button>
+        </div>
+
+        <!-- OTP STEP -->
+        <div id="otpStep" style="display:none;">
+          <button class="back-btn" onclick="goBack('mobileStep')">
+            <i class="fas fa-arrow-left"></i> Back
+          </button>
+          <div id="roleLabel2" class="role-label"></div>
+          <h2>Verify OTP</h2>
+          <p class="sub">Enter the 6-digit OTP sent to <strong id="mobileDisplay"></strong></p>
+
+          <div class="otp-boxes">
+            <input type="text" class="otp-input" maxlength="1" oninput="otpMove(this,1)">
+            <input type="text" class="otp-input" maxlength="1" oninput="otpMove(this,2)">
+            <input type="text" class="otp-input" maxlength="1" oninput="otpMove(this,3)">
+            <input type="text" class="otp-input" maxlength="1" oninput="otpMove(this,4)">
+            <input type="text" class="otp-input" maxlength="1" oninput="otpMove(this,5)">
+            <input type="text" class="otp-input" maxlength="1" oninput="otpMove(this,6)">
+          </div>
+
+          <button class="btn-primary" onclick="verifyOTP()">
+            <i class="fas fa-check-circle"></i> Verify & Login
+          </button>
+          <p class="resend-text">Didn't receive OTP? <span onclick="sendOTP()">Resend</span></p>
+        </div>
+
+        <p id="message" class="message"></p>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="login.js"></script>
+</body>
+</html>

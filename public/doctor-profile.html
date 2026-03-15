@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Complete Profile - DoctorSetu</title>
+  <link rel="stylesheet" href="profile-styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="profile-box">
+      <h1>Complete Your Profile</h1>
+      
+      <form id="profileForm" enctype="multipart/form-data">
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name *</label>
+            <input type="text" name="firstName" required>
+          </div>
+          <div class="form-group">
+            <label>Last Name *</label>
+            <input type="text" name="lastName" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Age *</label>
+            <input type="number" name="age" required>
+          </div>
+          <div class="form-group">
+            <label>Gender *</label>
+            <select name="gender" required>
+              <option value="">Select</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Profile Photo</label>
+          <input type="file" name="profilePhoto" accept="image/*" id="photoInput">
+          <div id="photoPreview"></div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Medical Degree *</label>
+            <input type="text" name="medicalDegree" placeholder="e.g., MBBS, MD" required>
+          </div>
+          <div class="form-group">
+            <label>Year of Completion *</label>
+            <input type="number" name="yearOfCompletion" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Permanent Address *</label>
+          <textarea name="permanentAddress" rows="3" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Present Address *</label>
+          <textarea name="presentAddress" rows="3" required></textarea>
+        </div>
+
+        <button type="submit">Save Profile</button>
+        <p id="message"></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="doctor-profile.js"></script>
+</body>
+</html>
